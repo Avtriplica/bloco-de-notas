@@ -82,12 +82,10 @@ function salvarEdicao(nota, conteudoNota, editarBtn, salvarEdicaoBtn) {
     salvarNotasLocalStorage(); // Atualiza o localStorage após salvar a edição
 }
 
-// Função para apagar uma nota
+// Função para apagar uma nota sem pop-up de confirmação
 function apagarNota(nota) {
-    if (confirm('Você tem certeza que deseja apagar esta nota?')) {
-        listaNotas.removeChild(nota);
-        salvarNotasLocalStorage(); // Atualiza o localStorage após apagar a nota
-    }
+    listaNotas.removeChild(nota);
+    salvarNotasLocalStorage(); // Atualiza o localStorage após apagar a nota
 }
 
 // Evento ao clicar no botão "Salvar Nota"
