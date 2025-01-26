@@ -1,3 +1,6 @@
+// Adiciona o identificador de utilizador (pode ser alterado conforme necessário)
+const userId = 'unique_user_id'; // Substituir por um ID dinâmico ou sistema de autenticação
+
 const salvarNotaBtn = document.getElementById('salvar-nota');
 const listaNotas = document.getElementById('lista-notas');
 const notaTexto = document.getElementById('nota-texto');
@@ -10,7 +13,7 @@ const sublinhadoBtn = document.getElementById('sublinhado');
 
 // Função para carregar as notas salvas do localStorage
 function carregarNotas() {
-    const notasSalvas = JSON.parse(localStorage.getItem('notas')) || [];
+    const notasSalvas = JSON.parse(localStorage.getItem(`notas_${userId}`)) || [];
     notasSalvas.forEach(nota => criarNota(nota.texto, nota.cor));
 }
 
@@ -22,7 +25,7 @@ function salvarNotasLocalStorage() {
         const cor = nota.style.color;
         notas.push({ texto, cor });
     });
-    localStorage.setItem('notas', JSON.stringify(notas));
+    localStorage.setItem(`notas_${userId}`, JSON.stringify(notas));
 }
 
 // Função para criar uma nova nota
